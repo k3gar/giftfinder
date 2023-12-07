@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Ano';
+    src: url('AnoBold-Regular.woff2') format('woff2'),
+        url('AnoBold-Regular.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ano';
+    src: url('AnoRegular-Regular.woff2') format('woff2'),
+        url('AnoRegular-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ano';
+    src: url('AnoBold-Italic.woff2') format('woff2'),
+        url('AnoBold-Italic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ano';
+    src: url('AnoBlack-Italic.woff2') format('woff2'),
+        url('AnoBlack-Italic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ano';
+    src: url('AnoBlack-Regular.woff2') format('woff2'),
+        url('AnoBlack-Regular.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

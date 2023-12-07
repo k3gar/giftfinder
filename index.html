@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Gift Finder</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/Ano.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Bebas+Neue"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container-fluid">
+        <div class="filterable-products-block--text">
+          <div class="filterable-products-block--header">
+            <h1>Encuentra</h1>
+          </div>
+          <div class="filterable-products-block--subheader">
+            <div class="filterable-products-block--subheader-wrapper">
+              <p>EL REGALO PERFECTO<br /></p>
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <div class="row">
+          <div class="col col-12 col-md-6 col-lg-3 pt-2" v-if="step === 1">
+            <fieldset>
+              <legend>?Para quien?</legend>
+
+              <input
+                type="radio"
+                id="Secret Santa"
+                value="Secret Santa"
+                v-model="para_quien"
+              />
+              <label class="label-option" for="Secret Santa"
+                >Secret Santa</label
+              >
+
+              <input type="radio" id="Dama" value="Dama" v-model="para_quien" />
+              <label class="label-option" for="Dama">Dama</label>
+
+              <input
+                type="radio"
+                id="Caballero"
+                value="Caballero"
+                v-model="para_quien"
+              />
+              <label class="label-option" for="Caballero">Caballero</label>
+
+              <input type="radio" id="Nino" value="Nino" v-model="para_quien" />
+              <label class="label-option" for="Nino">Niño</label>
+
+              <input type="radio" id="Nina" value="Nina" v-model="para_quien" />
+              <label class="label-option" for="Nina">Niña</label>
+
+              <input
+                type="radio"
+                id="Bebes"
+                value="Bebes"
+                v-model="para_quien"
+              />
+              <label class="label-option" for="Bebes">Bebés</label>
+              <div>
+                <button class="" @click.prevent="next()">Continuar</button>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col col-12 col-md-6 col-lg-3 pt-2" v-if="step === 2">
+            <fieldset>
+              <legend>Que rango de edad?</legend>
+              <input type="radio" id="Joven" value="Joven" v-model="edad" />
+              <label class="label-option" for="Joven">Joven</label>
+
+              <input type="radio" id="Adulto" value="Adulto" v-model="edad" />
+              <label class="label-option" for="Adulto">Adulto</label>
+
+              <input type="radio" id="Mayor" value="Mayor" v-model="edad" />
+              <label class="label-option" for="Mayor">Mayor</label>
+            </fieldset>
+            <div>
+              <button class="" @click.prevent="prev()">Volver</button>
+              <button class="" @click.prevent="next()">Continuar</button>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12 pt-2" v-if="step === 3">
+            <fieldset>
+              <legend>Cual es tu presupuesto?</legend>
+
+              <input type="radio" id="25" value="25" v-model="presupuesto" />
+              <label class="label-option" for="25">Hasta $25</label>
+
+              <input type="radio" id="50" value="50" v-model="presupuesto" />
+              <label class="label-option" for="50">Hasta $50</label>
+
+              <input type="radio" id="100" value="100" v-model="presupuesto" />
+              <label class="label-option" for="100">Hasta $100</label>
+
+              <input type="radio" id="mas" value="mas" v-model="presupuesto" />
+              <label class="label-option" for="mas">Más de $100</label>
+            </fieldset>
+            <div>
+                <button class="" @click.prevent="prev()">Volver</button>
+                <button class="" @click.prevent="next()">Continuar</button>
+            </div>
+          </div>
+          <div class="col col-12 col-md-6 col-lg-3 pt-2" v-if="step === 4">
+            <fieldset>
+              <legend>Que rango de edad?</legend>
+              <input type="radio" id="Tecnología" value="Tecnología" v-model="categoria" />
+              <label class="label-option" for="Tecnología">Tecnología</label>
+
+              <input type="radio" id="Moda" value="Moda" v-model="categoria" />
+              <label class="label-option" for="Moda">Moda</label>
+
+              <input type="radio" id="Juguetes" value="Juguetes" v-model="categoria" />
+              <label class="label-option" for="Juguetes">Juguetes</label>
+              
+              <input type="radio" id="Belleza" value="Belleza" v-model="categoria" />
+              <label class="label-option" for="Belleza">Belleza</label>
+
+              <input type="radio" id="Navidad" value="Navidad" v-model="categoria" />
+              <label class="label-option" for="Navidad">Navidad</label>
+
+              <input type="radio" id="Gift Cards" value="Gift Cards" v-model="categoria" />
+              <label class="label-option" for="Gift Cards">Gift Cards</label>
+            </fieldset>
+            <div>
+              <button class="" @click.prevent="prev()">Volver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <div
+          class="card flex flex-column flex-justfy-center"
+          v-for="list in filterList"
+        >
+          <a
+            :href="list.url"
+            target="_blank"
+            class="flex flex-column flex-justify-center flex-align-center"
+          >
+            <span
+              class="card-badge flex flex-row flex-justify-center flex-align-center"
+              >30%</span
+            >
+            <img :src="list.img" class="card-img-top" :alt="list.title" />
+            <div class="card-body">
+              <h5 class="card-title">{{list.title}}</h5>
+              <p class="card-text"><span>$10.00 | $25.00</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/finder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    <script src="assets/js/finder.js"></script>
+  </body>
+</html>
