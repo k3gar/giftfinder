@@ -418,10 +418,12 @@ label:hover {
     min-width: 300px;
   }
   .filter-selector-container fieldset div{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;   
+    flex-direction: column;
+  }
+  .filter-selector-container fieldset div .label-option{
+    height: 75px ;
+    padding: 12px;
+
   }
   .filter-selector-container fieldset .label-option {
     height: 65px;
