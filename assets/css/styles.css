@@ -98,6 +98,18 @@ h1 {
   background: var(--GrayAlt, #F5F5F5);
   border: none;
 }
+.filter-selector-container .go-back-button{
+  display: flex;
+  height: 44px;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--GrayAlt, #F5F5F5);
+  background: none;
+  color: #F5F5F5;
+}
 
 .filter-selector-container fieldset .label-option{
   display: flex;
