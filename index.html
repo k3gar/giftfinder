@@ -9,59 +9,32 @@
     <title>Gift Finder</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/Ano.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Bebas+Neue"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Open+Sans:700"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
 
   <body>
     <div id="app">
       <div class="container-fluid">
-        <div class="filterable-products-block--text">
           <div class="filterable-products-block--header">
             <h1>Encuentra</h1>
+            <p>EL REGALO PERFECTO<br /></p>
           </div>
-          <div class="filterable-products-block--subheader">
-            <div class="filterable-products-block--subheader-wrapper">
-              <p>EL REGALO PERFECTO<br /></p>
-            </div>
-          </div>
-        </div>
         <div></div>
-        <div class="row">
-          <div class="col col-12 col-md-6 col-lg-3 pt-2" v-if="step === 1">
+        <div class="row filter-selector-container">
+          <div class="filter-selector-container-col " v-if="step === 1">
+            <legend>¿Para quien?</legend>
             <fieldset>
-              <legend>?Para quien?</legend>
-
-              <input
-                type="radio"
-                id="Secret Santa"
-                value="Secret Santa"
-                v-model="para_quien"
-              />
-              <label class="label-option" for="Secret Santa"
-                >Secret Santa</label
-              >
+              <div>
+                <input type="radio" id="Secret Santa" value="Secret Santa" v-model="para_quien" />
+              <label class="label-option" for="Secret Santa">Secret Santa</label>
 
               <input type="radio" id="Dama" value="Dama" v-model="para_quien" />
               <label class="label-option" for="Dama">Dama</label>
 
-              <input
-                type="radio"
-                id="Caballero"
-                value="Caballero"
-                v-model="para_quien"
-              />
+              <input type="radio" id="Caballero" value="Caballero" v-model="para_quien" />
               <label class="label-option" for="Caballero">Caballero</label>
 
               <input type="radio" id="Nino" value="Nino" v-model="para_quien" />
@@ -71,77 +44,84 @@
               <label class="label-option" for="Nina">Niña</label>
 
               <input
-                type="radio"
-                id="Bebes"
-                value="Bebes"
-                v-model="para_quien"
-              />
+                type="radio" id="Bebes" value="Bebes" v-model="para_quien"/>
               <label class="label-option" for="Bebes">Bebés</label>
-              <div>
-                <button class="" @click.prevent="next()">Continuar</button>
               </div>
             </fieldset>
+            <div class="filter-selector-container__controlers">
+              <div></div>
+              <button class="" @click.prevent="next()">Continuar</button>
+            </div>
           </div>
-          <div class="col col-12 col-md-6 col-lg-3 pt-2" v-if="step === 2">
+          <div class="filter-selector-container-col " v-if="step === 2">
+            <legend>¿Que rango de edad?</legend>
             <fieldset>
-              <legend>Que rango de edad?</legend>
-              <input type="radio" id="Joven" value="Joven" v-model="edad" />
-              <label class="label-option" for="Joven">Joven</label>
+              <div class="filter-selector-container-col-mobile">
+                <input type="radio" id="Joven" value="Joven" v-model="edad" />
+                <label class="label-option" for="Joven">Joven</label>
+  
+                <input type="radio" id="Adulto" value="Adulto" v-model="edad" />
+                <label class="label-option" for="Adulto">Adulto</label>
+  
+                <input type="radio" id="Mayor" value="Mayor" v-model="edad" />
+                <label class="label-option" for="Mayor">Mayor</label>
+              </div>
 
-              <input type="radio" id="Adulto" value="Adulto" v-model="edad" />
-              <label class="label-option" for="Adulto">Adulto</label>
-
-              <input type="radio" id="Mayor" value="Mayor" v-model="edad" />
-              <label class="label-option" for="Mayor">Mayor</label>
             </fieldset>
-            <div>
+            <div class="filter-selector-container__controlers">
               <button class="" @click.prevent="prev()">Volver</button>
               <button class="" @click.prevent="next()">Continuar</button>
             </div>
           </div>
-          <div class="col-lg-6 col-12 pt-2" v-if="step === 3">
+          <div class="filter-selector-container-col " v-if="step === 3">
+            <legend>Cual es tu presupuesto?</legend>
             <fieldset>
-              <legend>Cual es tu presupuesto?</legend>
+              <div class="filter-selector-container-col-mobile">
+                <input type="radio" id="25" value="25" v-model="presupuesto" />
+                <label class="label-option" for="25">Hasta <span>$25</span> </label>
+  
+                <input type="radio" id="50" value="50" v-model="presupuesto" />
+                <label class="label-option" for="50">Hasta <span>$50</span></label>
+  
+                <input type="radio" id="100" value="100" v-model="presupuesto" />
+                <label class="label-option" for="100">Hasta <span>$100</span></label>
+  
+                <input type="radio" id="mas" value="mas" v-model="presupuesto" />
+                <label class="label-option" for="mas">Más de $100</label>
+              </div>
 
-              <input type="radio" id="25" value="25" v-model="presupuesto" />
-              <label class="label-option" for="25">Hasta $25</label>
-
-              <input type="radio" id="50" value="50" v-model="presupuesto" />
-              <label class="label-option" for="50">Hasta $50</label>
-
-              <input type="radio" id="100" value="100" v-model="presupuesto" />
-              <label class="label-option" for="100">Hasta $100</label>
-
-              <input type="radio" id="mas" value="mas" v-model="presupuesto" />
-              <label class="label-option" for="mas">Más de $100</label>
             </fieldset>
-            <div>
+            <div class="filter-selector-container__controlers">
                 <button class="" @click.prevent="prev()">Volver</button>
                 <button class="" @click.prevent="next()">Continuar</button>
             </div>
           </div>
-          <div class="col col-12 col-md-6 col-lg-3 pt-2" v-if="step === 4">
+          <div class="filter-selector-container-col " v-if="step === 4">
+            <legend>Que rango de edad?</legend>
             <fieldset>
-              <legend>Que rango de edad?</legend>
-              <input type="radio" id="Tecnología" value="Tecnología" v-model="categoria" />
-              <label class="label-option" for="Tecnología">Tecnología</label>
-
-              <input type="radio" id="Moda" value="Moda" v-model="categoria" />
-              <label class="label-option" for="Moda">Moda</label>
-
-              <input type="radio" id="Juguetes" value="Juguetes" v-model="categoria" />
-              <label class="label-option" for="Juguetes">Juguetes</label>
-              
-              <input type="radio" id="Belleza" value="Belleza" v-model="categoria" />
-              <label class="label-option" for="Belleza">Belleza</label>
-
-              <input type="radio" id="Navidad" value="Navidad" v-model="categoria" />
-              <label class="label-option" for="Navidad">Navidad</label>
-
-              <input type="radio" id="Gift Cards" value="Gift Cards" v-model="categoria" />
-              <label class="label-option" for="Gift Cards">Gift Cards</label>
+              <div class="filter-selector-container-col-mobile-category">
+                <div>
+                  <input type="radio" id="Tecnología" value="Tecnología" v-model="categoria" />
+                  <label class="label-option" for="Tecnología">Tecnología</label>
+    
+                  <input type="radio" id="Moda" value="Moda" v-model="categoria" />
+                  <label class="label-option" for="Moda">Moda</label>
+    
+                  <input type="radio" id="Juguetes" value="Juguetes" v-model="categoria" />
+                  <label class="label-option" for="Juguetes">Juguetes</label>
+                  
+                  <input type="radio" id="Belleza" value="Belleza" v-model="categoria" />
+                  <label class="label-option" for="Belleza">Belleza</label>
+                </div>
+  
+                <input type="radio" id="Navidad" value="Navidad" v-model="categoria" />
+                <label class="label-option" for="Navidad">Navidad</label>
+  
+                <input type="radio" id="Gift Cards" value="Gift Cards" v-model="categoria" />
+                <label class="label-option" for="Gift Cards">Gift Cards</label>
+              </div>
             </fieldset>
-            <div>
+            <div class="filter-selector-container__controlers">
               <button class="" @click.prevent="prev()">Volver</button>
             </div>
           </div>

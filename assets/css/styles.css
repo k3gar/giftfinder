@@ -2,16 +2,139 @@ h1 {
   font-family: 'Ano',Arial, sans-serif;
   font-size: 60px;
   font-weight: 900;
-  text-transform: uppercase;
   word-spacing: 10px;
 }
-
-.filterable-products-block--text {
-  display: inline-block;
+.container-fluid{
+  background-image: url('../images/background-desktop.png');
+  background-size: cover;
+  padding-bottom: 92px;
 }
 
 .filterable-products-block--header {
-  display: inline-block;
+  text-align: center;
+}
+.filterable-products-block--header  h1{
+  color: #ffffff;
+  font-family: 'Dancing Script';
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.filterable-products-block--header p {
+  color: #ffffff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.filter-selector-container{
+  justify-content: center;
+}
+
+.filter-selector-container-col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 792px;
+  width: auto;
+}
+
+.filter-selector-container fieldset{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  max-width: 792px;
+  width: 792px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  border-radius: 16px;
+}
+.filter-selector-container legend{
+  color: #FFF;
+  text-align: center;
+  font-family: Clan OT, arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 475;
+  line-height: normal;
+  letter-spacing: 0.016px;
+}
+.filter-selector-container fieldset div{
+  display: flex;
+  gap: 8px;
+  width: -webkit-fill-available;
+  width: fill-available;
+  width: -moz-available;
+}
+.filter-selector-container fieldset div div{
+  max-width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr); 
+}
+
+.filter-selector-container fieldset div div .label-option{
+  height: auto;
+  width: -webkit-fill-available;
+  width: fill-available;
+  width: -moz-available;
+}
+
+.filter-selector-container button{
+  display: flex;
+  height: 44px;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--GrayAlt, #F5F5F5);
+  border: none;
+}
+
+.filter-selector-container fieldset .label-option{
+  display: flex;
+  height: 128px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: 8px;
+  background: var(--GrayAlt, #F5F5F5);
+  width: 100px;
+}
+
+.label-option span{
+  color: var(--siman-rojo, #A83338);
+  /* H5 ClanOT Medium 24 */
+  font-family: Clan OT, Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.filter-selector-container fieldset input[type="radio"]:checked+label{
+  border-radius: 8px;
+  border: 1px solid var(--siman-rojo-light, #EF3742);
+  background: var(--GrayAlt, #F5F5F5);
+  box-shadow: 0px 4px 4px 0px rgba(168, 51, 56, 0.08), 0px 0px 32px 0px rgba(239, 55, 66, 0.08), 0px 16px 16px 0px rgba(239, 55, 66, 0.16);
+}
+
+.filter-selector-container__controlers{
+  max-width: 792px;
+  display: flex;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+  width: fill-available;
+  width: -moz-available;
 }
 
 .filterable-products-block--subheader {
@@ -34,11 +157,10 @@ legend {
   margin-left: 0;
   padding-bottom: 0;
   color: black;
-  text-transform: uppercase;
   font-size: 0.9rem;
 }
 
-.label-option {
+/* .label-option {
   display: inline-block;
   font-family: 'Ano';
   font-weight: 900;
@@ -50,7 +172,7 @@ legend {
   padding: 1px 10px 15px;
   text-transform: uppercase;
   font-size: 0.9rem;
-}
+} */
 
 input[type="radio"] {
   display: none;
@@ -257,3 +379,45 @@ label:hover {
   }
 }
 
+@media screen and (max-width: 800px){
+  .filterable-products-block--header h1, .filterable-products-block--header p {
+    font-size: 48px;
+  }
+  .filter-selector-container fieldset {
+    width: auto;
+    min-width: 300px;
+  }
+  .filter-selector-container fieldset div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;   
+  }
+  .filter-selector-container fieldset .label-option {
+    height: 65px;
+    width: auto;
+  }
+  .filter-selector-container-col-mobile{
+    display: flex !important;
+    flex-direction: column;
+  }
+  .filter-selector-container fieldset .filter-selector-container-col-mobile .label-option {
+    height: 75px ;
+    padding: 12px;
+    width: auto;
+  }
+  .filter-selector-container-col-mobile-category{
+    display: flex !important;
+    flex-direction: column;
+  }
+  .filter-selector-container-col-mobile-category div{ 
+    display: flex !important;
+    flex-direction: column;
+    max-width: 100% !important;
+  }
+  .filter-selector-container-col-mobile-category label{
+    height: 75px ;
+    padding: 12px;
+    width: auto;
+  }
+}
