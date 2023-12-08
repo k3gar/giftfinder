@@ -25,7 +25,7 @@
         <div></div>
         <div class="row filter-selector-container">
           <div class="filter-selector-container-col " v-if="step === 1">
-            <legend>¿Para quien?</legend>
+            <legend>¿Para quién?</legend>
             <fieldset>
               <div>
                 <input type="radio" id="Secret Santa" value="Secret Santa" v-model="para_quien" />
@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="filter-selector-container-col " v-if="step === 2">
-            <legend>¿Que rango de edad?</legend>
+            <legend>¿Qué rango de edad?</legend>
             <fieldset>
               <div class="filter-selector-container-col-mobile">
                 <input type="radio" id="Joven" value="Joven" v-model="edad" />
@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="filter-selector-container-col " v-if="step === 3">
-            <legend>Cual es tu presupuesto?</legend>
+            <legend>¿Cuál es tu presupuesto?</legend>
             <fieldset>
               <div class="filter-selector-container-col-mobile">
                 <input type="radio" id="25" value="25" v-model="presupuesto" />
@@ -97,7 +97,7 @@
             </div>
           </div>
           <div class="filter-selector-container-col " v-if="step === 4">
-            <legend>Que rango de edad?</legend>
+            <legend>¿Qué te gustaría regalar?</legend>
             <fieldset>
               <div class="filter-selector-container-col-mobile-category">
                 <div>
@@ -144,8 +144,8 @@
             >
             <img :src="list.img" class="card-img-top" :alt="list.title" />
             <div class="card-body">
-              <h5 class="card-title">{{list.title}}</h5>
-              <p class="card-text"><span>$10.00 | $25.00</span></p>
+              <h5 class="card-title">{{list.Nombre}}</h5>
+              <p class="card-price">$10.00 | $25.00</p>
             </div>
           </a>
         </div>
