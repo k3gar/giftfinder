@@ -138,14 +138,10 @@
             target="_blank"
             class="flex flex-column flex-justify-center flex-align-center"
           >
-            <span
-              class="card-badge flex flex-row flex-justify-center flex-align-center"
-              >30%</span
-            >
             <img :src="list.img" class="card-img-top" :alt="list.title" />
             <div class="card-body">
               <h5 class="card-title">{{list.Nombre}}</h5>
-              <p class="card-price">$10.00 | $25.00</p>
+              <p class="card-price">${{list.Precio_regular}}.00</p>
             </div>
           </a>
         </div>
